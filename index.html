@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SecondMonday Studios — software & quality engineering</title>
+<meta name="description" content="SecondMonday Studios is the independent software practice of Mika Martin: QA engineering, test automation, and small useful apps. Burnaby, BC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f6f5;
+    --ink:#20292b;
+    --ink-soft:#5b6a6d;
+    --line:#d7dedb;
+    --pass:#1e7a52;      /* tests passing */
+    --pass-soft:#e3f0e9;
+    --mark:#c4541d;      /* second-monday mark */
+    --maxw:42rem;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:17px}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:var(--maxw);margin:0 auto;padding:4.5rem 1.4rem 3rem}
+  a{color:inherit;text-decoration:underline;text-decoration-color:var(--pass);text-underline-offset:3px;text-decoration-thickness:1.5px}
+  a:hover{color:var(--pass)}
+  a:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:2px}
+
+  /* ---------- header / wordmark ---------- */
+  .wordmark{font-weight:700;font-size:clamp(1.9rem,5.5vw,2.6rem);letter-spacing:-0.02em;line-height:1.15}
+  .wordmark .mono{color:var(--ink-soft);font-weight:400}
+
+  /* signature: the week strip — the second Monday is the marked one */
+  .weeks{display:flex;gap:.35rem;margin:1.1rem 0 .4rem;align-items:flex-end}
+  .weeks .day{
+    width:1.45rem;height:1.45rem;border:1px solid var(--line);border-radius:4px;
+    font-family:"IBM Plex Mono",monospace;font-size:.62rem;color:var(--ink-soft);
+    display:flex;align-items:center;justify-content:center;background:#fff;
+  }
+  .weeks .gap{width:.55rem}
+  .weeks .day.first-m{color:var(--line);text-decoration:line-through;text-decoration-color:var(--ink-soft)}
+  .weeks .day.second-m{
+    background:var(--pass);border-color:var(--pass);color:#fff;font-weight:500;
+    box-shadow:0 1px 0 rgba(30,122,82,.35);
+  }
+  .strapline{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink-soft);margin-bottom:3.2rem}
+  .strapline em{font-style:normal;color:var(--pass)}
+
+  /* ---------- sections ---------- */
+  section{margin-bottom:3.2rem}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-soft);
+    display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;
+  }
+  .eyebrow::after{content:"";height:1px;background:var(--line);flex:1}
+  p + p{margin-top:.85rem}
+
+  .links{margin-top:1.1rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.95rem}
+  .links a{font-family:"IBM Plex Mono",monospace;font-size:.85rem}
+
+  /* ---------- app card ---------- */
+  .app{
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:1.4rem 1.5rem;margin-top:.4rem;
+  }
+  .app h3{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em}
+  .app .tagline{color:var(--ink-soft);margin-top:.15rem}
+  .app .body{margin-top:.8rem}
+  .status{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:var(--pass-soft);color:var(--pass);
+    border-radius:999px;padding:.18rem .7rem;margin-top:1rem;
+  }
+  .status::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--pass)}
+  .app .cta{margin-top:1rem;font-size:.95rem}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);padding-top:1.4rem;
+    font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .weeks .day.second-m{transition:transform .15s ease}
+    .weeks:hover .day.second-m{transform:translateY(-2px)}
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1 class="wordmark">SecondMonday<br><span class="mono">Studios</span></h1>
+    <div class="weeks" aria-hidden="true">
+      <span class="day first-m">M</span><span class="day">T</span><span class="day">W</span><span class="day">T</span><span class="day">F</span>
+      <span class="gap"></span>
+      <span class="day second-m">M</span>
+    </div>
+    <p class="strapline">software &amp; quality engineering · <em>all tests passing</em></p>
+  </header>
+
+  <section id="about">
+    <h2 class="eyebrow">About</h2>
+    <p>SecondMonday Studios is the independent software practice of <strong>Mika Martin</strong> — a software developer in test with 5+ years designing and scaling automated testing for complex web applications, now also building small, useful Android apps.</p>
+    <p>ISTQB-certified (including AI Testing), fluent in Selenium, Cypress, and CI/CD pipelines, and an enthusiastic adopter of AI-assisted development. Based in Burnaby, British&nbsp;Columbia.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/mikamartin/">LinkedIn ↗</a>
+      <a href="https://github.com/mikamartin">GitHub ↗</a>
+      <a href="mailto:hello@secondmondaystudios.com">hello@secondmondaystudios.com</a>
+    </div>
+  </section>
+
+  <section id="apps">
+    <h2 class="eyebrow">Apps</h2>
+    <div class="app">
+      <h3>EarnIt</h3>
+      <p class="tagline">Earn your wants.</p>
+      <p class="body">The tasks you dread, finally worth something: pick a reward you're craving, attach the tasks that you feel earn the right to it, log them when done, and watch dreaded things turn into progress and your sweet prize. Each want has its own price — pay it and enjoy guilt-free.</p>
+      <p>Your data stays on your device — easy to export, back up and restore.</p>
+      <span class="status">closed testing</span>
+      <p class="cta">Android user? <a href="mailto:hello@secondmondaystudios.com?subject=EarnIt%20closed%20test">Join the closed test</a> and help shape v1.</p>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2 class="eyebrow">Work with me</h2>
+    <p>Available for contract and full-time QA / SDET roles — full testing cycle, test automation strategy, framework builds (Selenium, Cypress, Playwright), and CI/CD pipeline work in Azure DevOps, Jenkins, and GitHub Actions. Remote, B2B or direct.</p>
+    <p>The fastest way to reach me is <a href="mailto:hello@secondmondaystudios.com">email</a>.</p>
+  </section>
+
+  <footer>
+    <span>© 2026 SecondMonday Studios</span>
+    <span><a href="privacy.html">Privacy</a> · Burnaby, BC, Canada</span>
+  </footer>
+
+</main>
+</body>
+</html>
