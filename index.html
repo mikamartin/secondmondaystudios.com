@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SecondMonday Studios — software & quality engineering</title>
+<title>SecondMonday Studios · software & quality engineering</title>
 <meta name="description" content="SecondMonday Studios is the independent software practice of Mika Martin: QA engineering, test automation, and small useful apps. Burnaby, BC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +14,8 @@
     --ink:#20292b;
     --ink-soft:#5b6a6d;
     --line:#d7dedb;
-    --pass:#1e7a52;      /* tests passing */
+    --pass:#1e7a52;
     --pass-soft:#e3f0e9;
-    --mark:#c4541d;      /* second-monday mark */
     --maxw:42rem;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -34,22 +33,8 @@
   a:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:2px}
 
   /* ---------- header / wordmark ---------- */
-  .wordmark{font-weight:700;font-size:clamp(1.9rem,5.5vw,2.6rem);letter-spacing:-0.02em;line-height:1.15}
-  .wordmark .mono{color:var(--ink-soft);font-weight:400}
-
-  /* signature: the week strip — the second Monday is the marked one */
-  .weeks{display:flex;gap:.35rem;margin:1.1rem 0 .4rem;align-items:flex-end}
-  .weeks .day{
-    width:1.45rem;height:1.45rem;border:1px solid var(--line);border-radius:4px;
-    font-family:"IBM Plex Mono",monospace;font-size:.62rem;color:var(--ink-soft);
-    display:flex;align-items:center;justify-content:center;background:#fff;
-  }
-  .weeks .gap{width:.55rem}
-  .weeks .day.first-m{color:var(--line);text-decoration:line-through;text-decoration-color:var(--ink-soft)}
-  .weeks .day.second-m{
-    background:var(--pass);border-color:var(--pass);color:#fff;font-weight:500;
-    box-shadow:0 1px 0 rgba(30,122,82,.35);
-  }
+  .wordmark{font-weight:700;font-size:clamp(1.9rem,5.5vw,2.6rem);letter-spacing:-0.02em;line-height:1.15;margin-bottom:.5rem}
+  .wordmark .mark{color:var(--pass)}
   .strapline{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink-soft);margin-bottom:3.2rem}
   .strapline em{font-style:normal;color:var(--pass)}
 
@@ -72,6 +57,8 @@
     padding:1.4rem 1.5rem;margin-top:.4rem;
   }
   .app h3{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em}
+  .app h3 a{text-decoration:none}
+  .app h3 a:hover{color:var(--pass)}
   .app .tagline{color:var(--ink-soft);margin-top:.15rem}
   .app .body{margin-top:.8rem}
   .status{
@@ -81,7 +68,15 @@
     border-radius:999px;padding:.18rem .7rem;margin-top:1rem;
   }
   .status::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--pass)}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+  .tag{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+    background:var(--paper);border:1px solid var(--line);border-radius:999px;
+    padding:.12rem .6rem;color:var(--ink-soft);
+  }
   .app .cta{margin-top:1rem;font-size:.95rem}
+  .app-head{display:flex;align-items:flex-start;gap:.85rem}
+  .app-icon{width:44px;height:44px;flex-shrink:0;margin-top:.1rem}
 
   /* ---------- footer ---------- */
   footer{
@@ -90,10 +85,6 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
   }
 
-  @media (prefers-reduced-motion: no-preference){
-    .weeks .day.second-m{transition:transform .15s ease}
-    .weeks:hover .day.second-m{transform:translateY(-2px)}
-  }
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
@@ -105,18 +96,13 @@
 <main>
 
   <header>
-    <h1 class="wordmark">SecondMonday<br><span class="mono">Studios</span></h1>
-    <div class="weeks" aria-hidden="true">
-      <span class="day first-m">M</span><span class="day">T</span><span class="day">W</span><span class="day">T</span><span class="day">F</span>
-      <span class="gap"></span>
-      <span class="day second-m">M</span>
-    </div>
+    <h1 class="wordmark">Second<span class="mark">M</span>onday Studios</h1>
     <p class="strapline">software &amp; quality engineering · <em>all tests passing</em></p>
   </header>
 
   <section id="about">
     <h2 class="eyebrow">About</h2>
-    <p>SecondMonday Studios is the independent software practice of <strong>Mika Martin</strong> — a software developer in test with 5+ years designing and scaling automated testing for complex web applications, now also building small, useful Android apps.</p>
+    <p>SecondMonday Studios is the independent software practice of <strong>Mika Martin</strong>, a software developer in test with 5+ years designing and scaling automated testing for complex web applications, now also building small, useful Android apps.</p>
     <p>ISTQB-certified (including AI Testing), fluent in Selenium, Cypress, and CI/CD pipelines, and an enthusiastic adopter of AI-assisted development. Based in Burnaby, British&nbsp;Columbia.</p>
     <div class="links">
       <a href="https://www.linkedin.com/in/mikamartin/">LinkedIn ↗</a>
@@ -128,18 +114,32 @@
   <section id="apps">
     <h2 class="eyebrow">Apps</h2>
     <div class="app">
-      <h3>EarnIt</h3>
-      <p class="tagline">Earn your wants.</p>
-      <p class="body">The tasks you dread, finally worth something: pick a reward you're craving, attach the tasks that you feel earn the right to it, log them when done, and watch dreaded things turn into progress and your sweet prize. Each want has its own price — pay it and enjoy guilt-free.</p>
-      <p>Your data stays on your device — easy to export, back up and restore.</p>
+      <div class="app-head">
+        <svg class="app-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672 672" aria-hidden="true">
+          <g transform="translate(80,80)">
+            <path fill="#E8A000" d="M102.49,0c0,27.414,0,104.166,0,137.062c0,112.391,99.33,156.25,153.51,156.25c54.18,0,153.51,-43.859,153.51,-156.25c0,-32.896,0,-109.648,0,-137.062H102.49zM256.289,50.551l-68.164,29.768v98.474l-0.049,19.53c-0.526,-0.112,-47.274,-10.112,-47.274,-78.391c0,-28.17,0,-69.6,0,-69.6h60.385L256.289,50.551z"/>
+            <path fill="#E8A000" d="M315.473,400.717L291.681,367.482L279.791,318.506L256,322.004L232.209,318.506L220.314,367.482L205.347,388.394L196.527,400.476L196.699,400.476L196.527,400.717z"/>
+            <path fill="#E8A000" d="M366.93,432.24L366.93,432L145.07,432L145.07,511.598L145.07,511.76L145.07,511.76L145.07,512L366.93,512L366.93,432.402L366.93,432.24z"/>
+            <path fill="#E8A000" d="M511.638,96.668c-0.033,-1.268,-0.068,-2.336,-0.068,-3.174V45.1h-73.889v38.736h35.152v9.658c0,1.127,0.037,2.557,0.086,4.258c0.389,13.976,1.303,46.707,-21.545,70.203c-5.121,5.266,-11.221,9.787,-18.219,13.613c-3.883,17.635,-10.109,33.564,-18.104,47.814c26.561,-6.406,48.026,-17.898,64.096,-34.422C513.402,159.734,512.121,113.918,511.638,96.668z"/>
+            <path fill="#E8A000" d="M60.625,167.955c-22.848,-23.496,-21.934,-56.227,-21.541,-70.203c0.047,-1.701,0.082,-3.131,0.082,-4.258v-9.658h34.842h0.07v0h0.24V45.1H0.43v48.394c0,0.838,-0.032,1.906,-0.068,3.174c-0.482,17.25,-1.76,63.066,32.494,98.293c16.068,16.524,37.531,28.014,64.092,34.422c-7.996,-14.25,-14.22,-30.182,-18.103,-47.816C71.846,177.74,65.746,173.221,60.625,167.955z"/>
+          </g>
+        </svg>
+        <div>
+          <h3><a href="earnit/index.html">EarnIt</a></h3>
+          <p class="tagline">An Android app that connects wants to have-tos.</p>
+        </div>
+      </div>
+      <p class="body">Pick a reward you're craving, link the tasks that should fund it, log them as you go. Mandatory task gatekeepers mean no shortcuts: do the work, watch the balance grow, claim the prize guilt-free.</p>
+      <p>Your data stays on your device. No account, no cloud. Easy to export and restore.</p>
       <span class="status">closed testing</span>
-      <p class="cta">Android user? <a href="mailto:hello@secondmondaystudios.com?subject=EarnIt%20closed%20test">Join the closed test</a> and help shape v1.</p>
+      <div class="tags"><span class="tag">Android</span><span class="tag">Free</span></div>
+      <p class="cta">Android user? <a href="mailto:hello@secondmondaystudios.com?subject=EarnIt%20closed%20test">Join the closed test →</a></p>
     </div>
   </section>
 
   <section id="work">
     <h2 class="eyebrow">Work with me</h2>
-    <p>Available for contract and full-time QA / SDET roles — full testing cycle, test automation strategy, framework builds (Selenium, Cypress, Playwright), and CI/CD pipeline work in Azure DevOps, Jenkins, and GitHub Actions. Remote, B2B or direct.</p>
+    <p>Available for contract and full-time QA / SDET roles: full testing cycle, test automation strategy, framework builds (Selenium, Cypress, Playwright), and CI/CD pipeline work in Azure DevOps, Jenkins, and GitHub Actions. Remote, B2B or direct.</p>
     <p>The fastest way to reach me is <a href="mailto:hello@secondmondaystudios.com">email</a>.</p>
   </section>
 
