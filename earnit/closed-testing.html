@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnIt: Closed Testing Guide · SecondMonday Studios</title>
+<meta name="description" content="How to test EarnIt for Android. A guide for closed testers: what to try, how to think about it, and how to report feedback.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f6f5; --ink:#20292b; --ink-soft:#5b6a6d;
+    --line:#d7dedb; --pass:#1e7a52; --pass-soft:#e3f0e9; --maxw:42rem;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:17px}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  main{max-width:var(--maxw);margin:0 auto;padding:4rem 1.4rem 3rem}
+  a{color:inherit;text-decoration:underline;text-decoration-color:var(--pass);text-underline-offset:3px;text-decoration-thickness:1.5px}
+  a:hover{color:var(--pass)}
+  a:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:2px}
+  .crumb{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink-soft);margin-bottom:2.2rem}
+  h1{font-weight:700;font-size:clamp(1.6rem,4.5vw,2.1rem);letter-spacing:-0.02em;margin-bottom:.3rem}
+  .meta{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-soft);margin-bottom:2.4rem}
+  h2{font-size:1.05rem;font-weight:700;margin:2.4rem 0 .6rem}
+  h3{font-size:1rem;font-weight:700;margin:2rem 0 .5rem}
+  p + p{margin-top:.8rem}
+  ul{margin:.6rem 0 .6rem 1.2rem}
+  ol{margin:.6rem 0 .6rem 1.2rem}
+  li{margin-bottom:.35rem}
+  hr{border:none;border-top:1px solid var(--line);margin:2.2rem 0}
+  .tldr{background:#fff;border:1px solid var(--line);border-left:3px solid var(--pass);border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.8rem}
+  .step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.4rem;margin-top:1rem}
+  .step h3{margin-top:0}
+  .check{
+    font-family:"IBM Plex Mono",monospace;font-size:.8rem;
+    background:var(--pass-soft);color:var(--pass);
+    border-radius:6px;padding:.6rem .9rem;margin-top:.9rem;
+  }
+  .check::before{content:"✓ Check: ";font-weight:500}
+  footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--ink-soft)}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<main>
+  <nav class="crumb"><a href="../index.html">← SecondMonday Studios</a></nav>
+
+  <h1>EarnIt: Closed Testing Guide</h1>
+  <p class="meta">EarnIt for Android · closed test</p>
+
+  <div class="tldr">
+    <p>Thanks for helping test EarnIt! You don't need any technical background. If you can use an Android app, you're qualified. This guide covers how to think about testing and some specific things to try.</p>
+  </div>
+
+  <h2>How to think about testing</h2>
+  <p>You're not following a strict script. You're using the app the way a real person would, and also trying things a real person might accidentally do.</p>
+  <p><strong>The goal is to find anything that:</strong></p>
+  <ul>
+    <li>Crashes the app or causes an error message</li>
+    <li>Looks broken or out of place (missing text, overlapping buttons, things that don't fit the screen)</li>
+    <li>Doesn't do what you'd expect</li>
+    <li>Feels confusing, even if it technically "works"</li>
+  </ul>
+  <p>That last one is just as important as the others. If something made you stop and think "wait, what does this do?" That's useful feedback.</p>
+  <p><strong>A few good habits:</strong></p>
+  <ul>
+    <li>Go slow and actually read the screens</li>
+    <li>Try tapping things you're not sure about</li>
+    <li>Try going <em>back</em> when you're mid-way through something, then coming back</li>
+    <li>Try leaving the app and coming back (press the home button, do something else, reopen EarnIt)</li>
+    <li>Try rotating your phone sideways on different screens</li>
+    <li>Don't just do the "obvious" path. Try skipping steps, tapping in a different order, leaving fields empty</li>
+  </ul>
+  <p>You won't break anything permanently. If something goes wrong you can always clear the data in Settings → Data &amp; Backup → Clear All.</p>
+
+  <hr>
+
+  <h2>What to report</h2>
+  <p>If you find something, note:</p>
+  <ol>
+    <li>What you were doing (e.g. "I was adding a new task")</li>
+    <li>What happened (e.g. "the app closed" or "the button did nothing")</li>
+    <li>Whether you could make it happen again</li>
+  </ol>
+  <p>A screenshot or screen recording is a huge help if you can manage it. Send feedback to <a href="mailto:hello@secondmondaystudios.com?subject=EarnIt%20feedback">hello@secondmondaystudios.com</a>.</p>
+
+  <hr>
+
+  <h2>Things to try</h2>
+  <p>Work through these in order. Each one builds on the last. Take your time and explore along the way.</p>
+
+  <div class="step">
+    <h3>1. Create your first reward</h3>
+    <p>A reward is something you want to earn, like a takeout night or a lazy Sunday.</p>
+    <ol>
+      <li>Open the app. You'll see the <strong>Prizes</strong> screen.</li>
+      <li>Create a new reward.</li>
+      <li>Give it a name and a point cost (try something between 10 and 30 points).</li>
+      <li>Optionally add a description, something that motivates you.</li>
+      <li>Scroll down to <strong>Tasks</strong> and tap <strong>Add task</strong>.</li>
+      <li>Create a task, give it a name and save it.</li>
+      <li>Back on the reward screen, try marking the task as <strong>Mandatory</strong>.</li>
+      <li>Save the reward.</li>
+    </ol>
+    <p class="check">Does the reward appear on the home screen? Does it show 0 points toward your target?</p>
+  </div>
+
+  <div class="step">
+    <h3>2. Log a task</h3>
+    <p>Logging a task earns you points toward a reward.</p>
+    <ol>
+      <li>From the home screen, tap your reward card.</li>
+      <li>You'll see the reward detail screen with your task listed.</li>
+      <li>Tap the task to log it. Add a note if you like (optional).</li>
+      <li>Confirm the log.</li>
+    </ol>
+    <p class="check">Did the points go up? Did the progress bar move? Try logging the same task again. Does it let you, or does it say you've already done it?</p>
+  </div>
+
+  <div class="step">
+    <h3>3. Claim your reward</h3>
+    <p>Once you've earned enough points (and completed any mandatory tasks), you can claim.</p>
+    <ol>
+      <li>Keep logging tasks until the progress bar is full.</li>
+      <li>Tap <strong>Claim</strong>.</li>
+      <li>Choose either <strong>Start over</strong> (keep the reward, reset the balance) or <strong>Archive</strong> (retire it).</li>
+    </ol>
+    <p class="check">Does the reward disappear from the home screen after archiving? Can you find it in <strong>History</strong>? Try tapping <strong>Earn Again</strong> on a history entry. Does it bring the reward back?</p>
+  </div>
+
+  <div class="step">
+    <h3>4. Try the home screen widget</h3>
+    <p>The widget lets you track a reward and log tasks without opening the app.</p>
+    <ol>
+      <li>Long-press an empty area of your Android home screen.</li>
+      <li>Tap <strong>Widgets</strong>, find <strong>EarnIt</strong>, and add it.</li>
+      <li>When prompted, pick a reward to track.</li>
+      <li>Optionally change the widget label (this is just the display name on your home screen; it doesn't change the reward name in the app).</li>
+      <li>Back on the home screen, tap the <strong>+ LOG</strong> button on the widget.</li>
+      <li>Pick a task, add a note if you like, and confirm.</li>
+    </ol>
+    <p class="check">Did the progress bar on the widget update? Did you get a notification? Try opening the app. Did the points update there too?</p>
+  </div>
+
+  <div class="step">
+    <h3>5. Explore settings</h3>
+    <ol>
+      <li>Tap the <strong>Settings</strong> gear icon.</li>
+      <li>Try changing the <strong>colour theme</strong>. Does the whole app update instantly?</li>
+      <li>Change your <strong>nickname</strong> under Appearance. Does the home screen greeting update?</li>
+      <li>Try the <strong>Export</strong> option under Data &amp; Backup. Does it let you save a file?</li>
+      <li>If you exported, try <strong>Import</strong> and load the same file back.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h3>6. A few extra things to try</h3>
+    <p>These don't have to be in order, just poke around:</p>
+    <ul>
+      <li>Create a reward with no tasks at all and see what you can do with it</li>
+      <li>Create two tasks and mark one mandatory, one optional. Can you claim after only logging the mandatory one (if you have enough points)?</li>
+      <li>Try drag-to-reorder on the Tasks screen: press and hold a task, then drag it up or down.</li>
+      <li>Switch to <strong>group view</strong> on the Tasks screen (the icon in the top right). Does it look right?</li>
+      <li>Try creating a task with the same name as an existing one.</li>
+      <li>Try creating a reward with the same name as an existing one.</li>
+      <li>Open the Task Library (Tasks screen → Library icon) and import a template.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Thanks again. Feedback at any level of detail is helpful. Even "this felt weird but I can't explain why" is worth sharing. Reach us at <a href="mailto:hello@secondmondaystudios.com?subject=EarnIt%20feedback">hello@secondmondaystudios.com</a>.</p>
+
+  <footer>© 2026 SecondMonday Studios · Burnaby, BC, Canada</footer>
+</main>
+</body>
+</html>
