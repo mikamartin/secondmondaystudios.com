@@ -8,27 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
 <style>
-  :root{
-    --paper:#f4f6f5; --ink:#20292b; --ink-soft:#5b6a6d;
-    --line:#d7dedb; --pass:#1e7a52; --maxw:42rem;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{font-size:17px}
-  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-  main{max-width:var(--maxw);margin:0 auto;padding:4rem 1.4rem 3rem}
-  a{color:inherit;text-decoration:underline;text-decoration-color:var(--pass);text-underline-offset:3px;text-decoration-thickness:1.5px}
-  a:hover{color:var(--pass)}
-  a:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:2px}
-  .crumb{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink-soft);margin-bottom:2.2rem}
+  .app-header{display:flex;align-items:flex-start;gap:1.2rem}
+  .app-header img{width:68px;height:68px;flex-shrink:0}
   h1{font-weight:700;font-size:clamp(1.6rem,4.5vw,2.1rem);letter-spacing:-0.02em;margin-bottom:.3rem}
   .meta{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-soft);margin-bottom:2.4rem}
   h2{font-size:1.05rem;font-weight:700;margin:2.2rem 0 .6rem}
-  p + p{margin-top:.8rem}
   ul{margin:.6rem 0 .6rem 1.2rem}
   li{margin-bottom:.35rem}
   .tldr{background:#fff;border:1px solid var(--line);border-left:3px solid var(--pass);border-radius:6px;padding:1rem 1.2rem;margin-bottom:1rem}
-  footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--ink-soft)}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
@@ -38,10 +27,15 @@
 </head>
 <body>
 <main>
-  <nav class="crumb"><a href="../privacy.html">← Privacy</a> · <a href="../index.html">SecondMonday Studios</a></nav>
+  <nav class="crumb"><a href="../index.html">← SecondMonday Studios</a> · <a href="../privacy.html">Privacy</a></nav>
 
-  <h1>EarnIt: Privacy Policy</h1>
-  <p class="meta">Effective date: [DATE] · Applies to: EarnIt for Android</p>
+  <div class="app-header">
+    <img src="../earnit/icon.svg" alt="">
+    <div>
+      <h1>EarnIt: Privacy Policy</h1>
+      <p class="meta">Effective date: TBA · Applies to: EarnIt for Android</p>
+    </div>
+  </div>
 
   <div class="tldr">
     <p><strong>The short version:</strong> EarnIt does not collect, transmit, sell, or share your personal data. Everything you enter stays on your device. The app works without an account and without an internet connection.</p>

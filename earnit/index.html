@@ -8,27 +8,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
 <style>
-  :root{
-    --paper:#f4f6f5; --ink:#20292b; --ink-soft:#5b6a6d;
-    --line:#d7dedb; --pass:#1e7a52; --pass-soft:#e3f0e9;
-    --gold:#E8A000; --maxw:42rem;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{font-size:17px}
-  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-  main{max-width:var(--maxw);margin:0 auto;padding:4rem 1.4rem 3rem}
-  a{color:inherit;text-decoration:underline;text-decoration-color:var(--pass);text-underline-offset:3px;text-decoration-thickness:1.5px}
-  a:hover{color:var(--pass)}
-  a:focus-visible{outline:2px solid var(--pass);outline-offset:3px;border-radius:2px}
-
-  .crumb{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink-soft);margin-bottom:2.6rem}
-
+  :root{--gold:#E8A000}
   .app-header{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:1.4rem}
-  .app-header svg{width:68px;height:68px;flex-shrink:0}
+  .app-header img{width:68px;height:68px;flex-shrink:0}
   .app-header h1{font-weight:700;font-size:clamp(1.7rem,4.8vw,2.2rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:.25rem}
   .tagline{font-size:1.05rem;color:var(--ink-soft)}
-
   .status{
     font-family:"IBM Plex Mono",monospace;font-size:.78rem;
     display:inline-flex;align-items:center;gap:.5rem;
@@ -42,10 +28,7 @@
     background:#fff;border:1px solid var(--line);border-radius:999px;
     padding:.12rem .6rem;color:var(--ink-soft);
   }
-
-  p + p{margin-top:.85rem}
   .section-label{margin-top:1.4rem}
-
   .features{list-style:none;margin:1.2rem 0 0;display:flex;flex-direction:column;gap:.55rem}
   .features li{display:flex;gap:.7rem;align-items:baseline}
   .features li::before{
@@ -53,15 +36,12 @@
     border-radius:50%;background:var(--gold);flex-shrink:0;
     margin-top:.48rem;
   }
-
   .cta-block{
     background:#fff;border:1px solid var(--line);border-radius:8px;
     padding:1.2rem 1.4rem;margin-top:2rem;
   }
-  .cta-block p + p{margin-top:.5rem}
+  .cta-block p+p{margin-top:.5rem}
   .cta-links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.8rem;font-family:"IBM Plex Mono",monospace;font-size:.85rem}
-
-  footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
@@ -74,15 +54,7 @@
   <nav class="crumb"><a href="../index.html">← SecondMonday Studios</a></nav>
 
   <div class="app-header">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672 672" aria-hidden="true">
-      <g transform="translate(80,80)">
-        <path fill="#E8A000" d="M102.49,0c0,27.414,0,104.166,0,137.062c0,112.391,99.33,156.25,153.51,156.25c54.18,0,153.51,-43.859,153.51,-156.25c0,-32.896,0,-109.648,0,-137.062H102.49zM256.289,50.551l-68.164,29.768v98.474l-0.049,19.53c-0.526,-0.112,-47.274,-10.112,-47.274,-78.391c0,-28.17,0,-69.6,0,-69.6h60.385L256.289,50.551z"/>
-        <path fill="#E8A000" d="M315.473,400.717L291.681,367.482L279.791,318.506L256,322.004L232.209,318.506L220.314,367.482L205.347,388.394L196.527,400.476L196.699,400.476L196.527,400.717z"/>
-        <path fill="#E8A000" d="M366.93,432.24L366.93,432L145.07,432L145.07,511.598L145.07,511.76L145.07,511.76L145.07,512L366.93,512L366.93,432.402L366.93,432.24z"/>
-        <path fill="#E8A000" d="M511.638,96.668c-0.033,-1.268,-0.068,-2.336,-0.068,-3.174V45.1h-73.889v38.736h35.152v9.658c0,1.127,0.037,2.557,0.086,4.258c0.389,13.976,1.303,46.707,-21.545,70.203c-5.121,5.266,-11.221,9.787,-18.219,13.613c-3.883,17.635,-10.109,33.564,-18.104,47.814c26.561,-6.406,48.026,-17.898,64.096,-34.422C513.402,159.734,512.121,113.918,511.638,96.668z"/>
-        <path fill="#E8A000" d="M60.625,167.955c-22.848,-23.496,-21.934,-56.227,-21.541,-70.203c0.047,-1.701,0.082,-3.131,0.082,-4.258v-9.658h34.842h0.07v0h0.24V45.1H0.43v48.394c0,0.838,-0.032,1.906,-0.068,3.174c-0.482,17.25,-1.76,63.066,32.494,98.293c16.068,16.524,37.531,28.014,64.092,34.422c-7.996,-14.25,-14.22,-30.182,-18.103,-47.816C71.846,177.74,65.746,173.221,60.625,167.955z"/>
-      </g>
-    </svg>
+    <img src="icon.svg" alt="">
     <div>
       <h1>EarnIt</h1>
       <p class="tagline">An Android app that connects wants to have-tos.</p>
@@ -101,10 +73,10 @@
     <li>Link tasks to a specific reward and earn points toward it as you go.</li>
     <li>Set a point cost for each reward, manually or automatically.</li>
     <li>Mark tasks as mandatory so the claim button only unlocks once the real work is done.</li>
-    <li>Home screen widget for at-a-glance progress and one-tap task logging.</li>
-    <li>Task Library with ready-made templates to get started fast.</li>
-    <li>Every claimed reward is archived with a full log and can be reactivated to run again.</li>
-    <li>Three colour themes, full dark mode, 9 mascots unlocked as you make progress, and a daily quote to keep you going.</li>
+    <li>Add a home screen widget for at-a-glance progress and one-tap task logging.</li>
+    <li>Browse the Task Library for ready-made templates to get started fast.</li>
+    <li>Archive claimed rewards with a full log, then reactivate them to run again.</li>
+    <li>Choose from three colour themes, full dark mode, 9 mascots that unlock as you progress, and a daily quote to keep you going.</li>
     <li>Export your data any time, import it back, or rely on Android's automatic backup.</li>
   </ul>
 
