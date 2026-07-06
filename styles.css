@@ -34,3 +34,38 @@ footer{
   flex-wrap:wrap;
   gap:.5rem;
 }
+
+/* ---------- status pill + tag chips ---------- */
+.meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.status{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  display:inline-flex;align-items:center;gap:.5rem;flex-shrink:0;
+  background:var(--pass-soft);color:var(--pass);
+  border-radius:999px;padding:.18rem .7rem;
+}
+.status::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--pass)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:.12rem .6rem;color:var(--ink-soft);
+}
+
+/* ---------- app icon + title header (sub-pages) ---------- */
+.app-header{display:flex;align-items:flex-start;gap:1.2rem}
+.app-header img{width:68px;height:68px;flex-shrink:0}
+
+/* ---------- sub-page title + mono meta line ---------- */
+.page-title{font-weight:700;font-size:clamp(1.6rem,4.5vw,2.1rem);letter-spacing:-0.02em;margin-bottom:.3rem}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-soft);margin-bottom:2.4rem}
+
+/* ---------- content page rhythm (privacy, guides) ---------- */
+h2{font-size:1.05rem;font-weight:700;margin:2.2rem 0 .6rem}
+ul,ol{margin:.6rem 0 .6rem 1.2rem}
+li{margin-bottom:.35rem}
+
+/* ---------- callout box ---------- */
+.tldr{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--pass);
+  border-radius:6px;padding:1rem 1.2rem;margin-bottom:1rem;
+}
