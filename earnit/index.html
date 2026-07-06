@@ -11,23 +11,10 @@
 <link rel="stylesheet" href="../styles.css">
 <style>
   :root{--gold:#E8A000}
-  .app-header{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:1.4rem}
-  .app-header img{width:68px;height:68px;flex-shrink:0}
+  .app-header{margin-bottom:1.4rem}
   .app-header h1{font-weight:700;font-size:clamp(1.7rem,4.8vw,2.2rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:.25rem}
   .tagline{font-size:1.05rem;color:var(--ink-soft)}
-  .status{
-    font-family:"IBM Plex Mono",monospace;font-size:.78rem;
-    display:inline-flex;align-items:center;gap:.5rem;
-    background:var(--pass-soft);color:var(--pass);
-    border-radius:999px;padding:.18rem .7rem;margin-bottom:.5rem;
-  }
-  .status::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--pass)}
-  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem}
-  .tag{
-    font-family:"IBM Plex Mono",monospace;font-size:.72rem;
-    background:#fff;border:1px solid var(--line);border-radius:999px;
-    padding:.12rem .6rem;color:var(--ink-soft);
-  }
+  .meta-row{margin-bottom:1.6rem}
   .section-label{margin-top:1.4rem}
   .features{list-style:none;margin:1.2rem 0 0;display:flex;flex-direction:column;gap:.55rem}
   .features li{display:flex;gap:.7rem;align-items:baseline}
@@ -42,6 +29,28 @@
   }
   .cta-block p+p{margin-top:.5rem}
   .cta-links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.8rem;font-family:"IBM Plex Mono",monospace;font-size:.85rem}
+  .screenshots{
+    display:flex;gap:1.1rem;overflow-x:auto;margin:1.2rem -1.4rem 0;
+    padding:.6rem 1.4rem 1.3rem;scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 1.4rem,#000 calc(100% - 1.4rem),transparent);
+    mask-image:linear-gradient(to right,transparent,#000 1.4rem,#000 calc(100% - 1.4rem),transparent);
+    scrollbar-width:thin;scrollbar-color:var(--gold) transparent;
+  }
+  .screenshots::-webkit-scrollbar{height:6px}
+  .screenshots::-webkit-scrollbar-track{background:transparent}
+  .screenshots::-webkit-scrollbar-thumb{background:var(--gold);border-radius:999px}
+  .screenshots a{
+    flex:0 0 auto;scroll-snap-align:start;display:block;position:relative;
+    border-radius:14px;overflow:hidden;border:1px solid var(--line);
+    line-height:0;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.07);
+    transition:transform .22s ease,box-shadow .22s ease;
+  }
+  .screenshots a:hover,.screenshots a:focus-visible{
+    transform:scale(1.18);z-index:2;
+    box-shadow:0 16px 32px rgba(0,0,0,.2);
+  }
+  .screenshots img{height:340px;width:auto;display:block}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
@@ -61,12 +70,24 @@
     </div>
   </div>
 
-  <span class="status">closed testing</span>
-  <div class="tags"><span class="tag">Android</span><span class="tag">Free</span></div>
+  <div class="meta-row">
+    <span class="status">closed testing</span>
+    <div class="tags"><span class="tag">Android</span><span class="tag">Free</span></div>
+  </div>
 
   <p>We all have those things we really want but don't <em>need</em>, and a list of dreaded chores we keep avoiding. EarnIt connects the two. Pick a reward you've been craving, set a point cost, and link the tasks that should fund it. Crush the "ew" tasks, watch the balance grow, and claim your prize guilt-free. You earned it.</p>
   <p>Use it alongside your regular to-do app. EarnIt is just for the stuff you actually want to treat yourself to. Add a home screen widget to stay motivated and track progress at a glance.</p>
   <p>Your privacy matters: all your data stays right on your device. No account required, no internet connection needed, nothing sent anywhere.</p>
+
+  <div class="screenshots">
+    <a href="screenshots/01-home.jpg" target="_blank" rel="noopener"><img src="screenshots/01-home.jpg" alt="Dashboard listing rewards like Spa Day and Tofino Trip, each with a progress bar and Log button"></a>
+    <a href="screenshots/02-reward-detail.jpg" target="_blank" rel="noopener"><img src="screenshots/02-reward-detail.jpg" alt="Spa Day reward detail showing point progress, linked tasks, and recent activity"></a>
+    <a href="screenshots/03-tasks.jpg" target="_blank" rel="noopener"><img src="screenshots/03-tasks.jpg" alt="Task library with entries like Morning Run, Workout, and Code Practice, each worth points"></a>
+    <a href="screenshots/04-task-detail.jpg" target="_blank" rel="noopener"><img src="screenshots/04-task-detail.jpg" alt="Code Practice task detail showing which rewards it funds and its activity history"></a>
+    <a href="screenshots/05-history.jpg" target="_blank" rel="noopener"><img src="screenshots/05-history.jpg" alt="History view of completed tasks with notes and points earned"></a>
+    <a href="screenshots/06-settings.jpg" target="_blank" rel="noopener"><img src="screenshots/06-settings.jpg" alt="Settings screen with mascot name, colour theme, and reward limits"></a>
+    <a href="screenshots/07-widget.jpg" target="_blank" rel="noopener"><img src="screenshots/07-widget.jpg" alt="Home screen widget showing reward progress at a glance"></a>
+  </div>
 
   <p class="section-label"><strong>What's in the app</strong></p>
   <ul class="features">
