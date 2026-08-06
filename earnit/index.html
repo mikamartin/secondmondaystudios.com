@@ -10,47 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-  :root{--gold:#E8A000}
+  :root{--accent:#E8A000}
   .app-header{margin-bottom:1.4rem}
   .app-header h1{font-weight:700;font-size:clamp(1.7rem,4.8vw,2.2rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:.25rem}
   .tagline{font-size:1.05rem;color:var(--ink-soft)}
   .meta-row{margin-bottom:1.6rem}
   .section-label{margin-top:1.4rem}
-  .features{list-style:none;margin:1.2rem 0 0;display:flex;flex-direction:column;gap:.55rem}
-  .features li{display:flex;gap:.7rem;align-items:baseline}
-  .features li::before{
-    content:"";display:inline-block;width:.45rem;height:.45rem;
-    border-radius:50%;background:var(--gold);flex-shrink:0;
-    margin-top:.48rem;
-  }
-  .cta-block{
-    background:#fff;border:1px solid var(--line);border-radius:8px;
-    padding:1.2rem 1.4rem;margin-top:2rem;
-  }
-  .cta-block p+p{margin-top:.5rem}
-  .cta-links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.8rem;font-family:"IBM Plex Mono",monospace;font-size:.85rem}
-  .screenshots{
-    display:flex;gap:1.1rem;overflow-x:auto;margin:1.2rem -1.4rem 0;
-    padding:.6rem 1.4rem 1.3rem;scroll-snap-type:x proximity;
-    -webkit-overflow-scrolling:touch;
-    -webkit-mask-image:linear-gradient(to right,transparent,#000 1.4rem,#000 calc(100% - 1.4rem),transparent);
-    mask-image:linear-gradient(to right,transparent,#000 1.4rem,#000 calc(100% - 1.4rem),transparent);
-    scrollbar-width:thin;scrollbar-color:var(--gold) transparent;
-  }
-  .screenshots::-webkit-scrollbar{height:6px}
-  .screenshots::-webkit-scrollbar-track{background:transparent}
-  .screenshots::-webkit-scrollbar-thumb{background:var(--gold);border-radius:999px}
-  .screenshots a{
-    flex:0 0 auto;scroll-snap-align:start;display:block;position:relative;
-    border-radius:14px;overflow:hidden;border:1px solid var(--line);
-    line-height:0;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.07);
-    transition:transform .22s ease,box-shadow .22s ease;
-  }
-  .screenshots a:hover,.screenshots a:focus-visible{
-    transform:scale(1.18);z-index:2;
-    box-shadow:0 16px 32px rgba(0,0,0,.2);
-  }
-  .screenshots img{height:340px;width:auto;display:block}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">

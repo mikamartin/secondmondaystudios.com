@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HODITH: Closed Testing Guide · SecondMonday Studios</title>
+<meta name="description" content="How to test HODITH for Android. A guide for closed testers: what to try, how to think about it, and how to report feedback.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  h2{margin-top:2.4rem}
+  .tldr{margin-bottom:1.8rem}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/icons/site.webmanifest">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<main>
+  <nav class="crumb"><a href="../index.html">← SecondMonday Studios</a> · <a href="index.html">HODITH</a></nav>
+
+  <div class="app-header">
+    <img src="icon.svg" alt="">
+    <div>
+      <h1 class="page-title">HODITH: Closed Testing Guide</h1>
+      <p class="meta">HODITH for Android · closed test</p>
+    </div>
+  </div>
+
+  <div class="tldr">
+    <p>Thanks for helping test HODITH! You don't need any technical background. If you can use an Android app, you're qualified. This guide covers how to think about testing and some specific things to try.</p>
+  </div>
+
+  <h2>How to think about testing</h2>
+  <p>You're not following a strict script. You're using the app the way a real person would, and also trying things a real person might accidentally do.</p>
+  <p><strong>The goal is to find anything that:</strong></p>
+  <ul>
+    <li>Crashes the app or causes an error message</li>
+    <li>Looks broken or out of place (missing text, overlapping buttons, things that don't fit the screen)</li>
+    <li>Doesn't do what you'd expect</li>
+    <li>Feels confusing, even if it technically "works"</li>
+  </ul>
+  <p>That last one is just as important as the others. If something made you stop and think "wait, what does this do?" That's useful feedback.</p>
+  <p><strong>A few good habits:</strong></p>
+  <ul>
+    <li>Go slow and actually read the screens</li>
+    <li>Try tapping things you're not sure about</li>
+    <li>Try going <em>back</em> when you're mid-way through something, then coming back</li>
+    <li>Try leaving the app and coming back (press the home button, do something else, reopen HODITH)</li>
+    <li>Try rotating your phone sideways on different screens</li>
+    <li>Don't just do the "obvious" path. Try skipping steps, tapping in a different order, leaving fields empty</li>
+  </ul>
+  <p>You won't break anything permanently. If something goes wrong you can always clear the data in Settings → Data → Delete all data.</p>
+
+  <hr>
+
+  <h2>What to report</h2>
+  <p>If you find something, note:</p>
+  <ol>
+    <li>What you were doing (e.g. "I was creating a new Case")</li>
+    <li>What happened (e.g. "the app closed" or "the button did nothing")</li>
+    <li>Whether you could make it happen again</li>
+  </ol>
+  <p>A screenshot or screen recording is a huge help if you can manage it. Send feedback to <a href="mailto:hello@secondmondaystudios.com?subject=HODITH%20feedback">hello@secondmondaystudios.com</a>.</p>
+
+  <hr>
+
+  <h2>Things to try</h2>
+  <p>Work through these in order. Each one builds on the last. Take your time and explore along the way.</p>
+
+  <div class="step">
+    <h3>1. Create your first Case</h3>
+    <p>A Case is the thing you want to check — a habit, a feeling, something someone does.</p>
+    <ol>
+      <li>Open the app. You'll see the <strong>Home</strong> screen.</li>
+      <li>Create a new Case (e.g. "Kiddo was rude", "Migraine", "Perfect coffee").</li>
+      <li>Pick an icon and, optionally, add a description.</li>
+      <li>Try the different logging options: one-tap vs. detail sheet, duration mode, intensity toggle.</li>
+      <li>When asked "Got a feeling about this one?", try skipping it this time — you'll add a Hunch later.</li>
+      <li>Save the Case.</li>
+    </ol>
+    <p class="check">Does the Case appear on Home? Does its icon show up everywhere you'd expect?</p>
+  </div>
+
+  <div class="step">
+    <h3>2. Log a few occurrences</h3>
+    <p>Logging is the core loop — it should be fast.</p>
+    <ol>
+      <li>From Home, tap the quick-log button on your Case.</li>
+      <li>Open the Case and use the Log tab's FAB to add a retro-log — pick a date/time in the past.</li>
+      <li>If your Case uses Start/Stop, try starting one and stopping it later.</li>
+      <li>Edit and delete a logged event from the event list.</li>
+    </ol>
+    <p class="check">Do the counts on Home and the Case detail screen update right away? Does the retro-logged event show up at the right date?</p>
+  </div>
+
+  <div class="step">
+    <h3>3. State a Hunch and check the Verdict</h3>
+    <p>The Hunch vs. Verdict is the payoff of the whole app.</p>
+    <ol>
+      <li>Open your Case's <strong>Hunch</strong> tab and state a Hunch (e.g. "happens about 3x a week").</li>
+      <li>With only a few logs, notice the app says something like "early days" instead of guessing.</li>
+      <li>Keep logging occurrences (real or, for testing, just tap through a handful) until you have more data.</li>
+      <li>Come back and check whether a Verdict has appeared.</li>
+    </ol>
+    <p class="check">Does the "early days" state feel honest rather than broken? Once a Verdict appears, does it clearly compare your Hunch to reality?</p>
+  </div>
+
+  <div class="step">
+    <h3>4. Explore the Big Picture</h3>
+    <p>This is the flagship view — all your Cases on one shared calendar.</p>
+    <ol>
+      <li>Create a second Case and log a few events on it too.</li>
+      <li>Open <strong>Big Picture</strong> from the bottom navigation.</li>
+      <li>Scroll through months. Tap a day with events, then tap an individual event.</li>
+      <li>Try the case filter chips above the grid — toggle a Case off and on.</li>
+    </ol>
+    <p class="check">Do both Cases' icons show up correctly on the days you logged? Does filtering hide/show the right icons?</p>
+  </div>
+
+  <div class="step">
+    <h3>5. Try triggers, check-ins, and the widget</h3>
+    <ol>
+      <li>From a Case's header, open <strong>Triggers</strong> and create one (e.g. "3+ times in 7 days").</li>
+      <li>Log enough events to make it fire, and see whether a notification or in-app banner appears.</li>
+      <li>Long-press your home screen, add the HODITH widget, and log an event from it without opening the app.</li>
+    </ol>
+    <p class="check">Did the trigger fire when expected? Did the widget's tap-to-log actually create an event?</p>
+  </div>
+
+  <div class="step">
+    <h3>6. Explore themes and sharing</h3>
+    <ol>
+      <li>In <strong>Settings</strong>, switch between the Plain, Intense, and Bright themes.</li>
+      <li>Notice that the wording changes too, not just the colors.</li>
+      <li>From a Case with a resolved Hunch, tap <strong>Share</strong> and preview a story-style card.</li>
+      <li>Try toggling Insights sections on the share preview, and edit the displayed Case name.</li>
+    </ol>
+    <p class="check">Does every screen you visit change its wording along with the theme? Does the share preview look right before you'd actually share it?</p>
+  </div>
+
+  <div class="step">
+    <h3>7. A few extra things to try</h3>
+    <p>These don't have to be in order, just poke around:</p>
+    <ul>
+      <li>Create a Case with no Hunch at all and see what its Insights tab looks like.</li>
+      <li>Try archiving a Case, then find it again in Archived Cases and unarchive it.</li>
+      <li>Try naming a new Case the same as an existing active one.</li>
+      <li>Leave a Case untouched for a while and see whether a check-in shows up asking if anything went unlogged.</li>
+      <li>Try exporting your data from Settings, then importing it back.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Thanks again. Feedback at any level of detail is helpful. Even "this felt weird but I can't explain why" is worth sharing. Reach us at <a href="mailto:hello@secondmondaystudios.com?subject=HODITH%20feedback">hello@secondmondaystudios.com</a>.</p>
+
+  <footer>© 2026 SecondMonday Studios · Burnaby, BC, Canada</footer>
+</main>
+</body>
+</html>
