@@ -42,10 +42,12 @@ footer{
   display:inline-flex;align-items:center;gap:.5rem;flex-shrink:0;
   background:var(--pass-soft);color:var(--pass);
   border-radius:999px;padding:.18rem .7rem;
+  text-decoration:none;
 }
 .status::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--pass)}
-.status.status-soon{background:var(--paper);color:var(--ink-soft)}
-.status.status-soon::before{background:var(--ink-soft)}
+a.status::before{content:none}
+.status.status-soon{background:#fff;color:var(--ink-soft);border:1px solid var(--line);padding:.12rem .6rem;font-size:.72rem}
+.status.status-soon::before{content:none}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .tag{
   font-family:"IBM Plex Mono",monospace;font-size:.72rem;
